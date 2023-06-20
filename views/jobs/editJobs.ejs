@@ -1,32 +1,32 @@
 <%- include('../partials/navbar.ejs') %>
 <%- include('../partials/header.ejs') %>
 
-<h1>Add New Job</h1>
-<form method="post" action="/jobs/new">
+<h1>Edit Job</h1>
+<form method="post" action="/jobs/edit/<%= oldJobData._id %>?_method=patch">
     <div class="mb-3">
       <label for="exampleInputEmail1" class="form-label">Post Name</label>
-      <input name="postName" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+      <input value="<%=oldJobData.postName%>" name="postName" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
     </div>
     <div class="mb-3">
       <label for="exampleInputPassword1" class="form-label">Company Name</label>
-      <input name="companyName" type="text" class="form-control" id="exampleInputPassword1">
+      <input value="<%=oldJobData.companyName%>" name="companyName" type="text" class="form-control" id="exampleInputPassword1">
     </div>
     <div class="mb-3">
         <label for="exampleInputPassword1" class="form-label">CTC</label>
-        <input name="ctc" type="number" class="form-control" id="exampleInputPassword1">
+        <input value="<%=oldJobData.ctc%>" name="ctc" type="number" class="form-control" id="exampleInputPassword1">
     </div>
     <div class="mb-3">
         <label for="exampleInputPassword1" class="form-label">Location</label>
-        <input name="location" type="text" class="form-control" id="exampleInputPassword1">
+        <input value="<%=oldJobData.location%>" name="location" type="text" class="form-control" id="exampleInputPassword1">
     </div>
     <div class="mb-3">
         <label for="exampleInputPassword1" class="form-label">Positions</label>
-        <input name="positions" type="number" class="form-control" id="exampleInputPassword1">
+        <input value="<%=oldJobData.positions%>" name="positions" type="number" class="form-control" id="exampleInputPassword1">
     </div>
    
 
     <button type="submit" class="btn btn-primary">Submit</button>
-  </form>
+</form>
 
 
 <%- include('../partials/footer.ejs') %>
