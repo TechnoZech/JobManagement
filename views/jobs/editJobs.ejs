@@ -2,7 +2,7 @@
 <%- include('../partials/header.ejs') %>
 
 <h1>Edit Job</h1>
-<form method="post" action="/jobs/edit/<%= oldJobData._id %>?_method=patch">
+<form class="margin" method="post" action="/jobs/edit/<%= oldJobData._id %>?_method=patch">
     <div class="mb-3">
       <label for="exampleInputEmail1" class="form-label">Post Name</label>
       <input value="<%=oldJobData.postName%>" name="postName" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">

@@ -2,8 +2,9 @@
 <%- include('../partials/header.ejs') %>
 
 <h1>All Jobs Listings</h1>
+<div class="cardPage margin">
 <% for(let jobData of allJobs){ %>
-    <div class="card" style="width: 18rem;">
+      <div class="card me-3" style="width: 18rem;">
         <div class="card-body">
           <h5 class="card-title"><%= jobData.postName %></h5>
           <p class="card-text"><%= jobData.companyName %></p>
@@ -13,6 +14,7 @@
           <a href="/jobs/edit/<%= jobData._id %>" class="btn btn-primary">Edit</a>
           <a href="/jobs/delete/<%= jobData._id %>" class="btn btn-danger">Delete</a>
         </div>
-    </div>
-<% } %>
+      </div>
+      <% } %>
+</div>
 <%- include('../partials/footer.ejs') %>

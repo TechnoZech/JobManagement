@@ -1,0 +1,15 @@
+<%- include('../partials/navbar.ejs') %>
+<%- include('../partials/header.ejs') %>
+    <form class="margin" action="/login" method="post">
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Email address</label>
+          <input name="username" type="email" class="form-control" aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Password</label>
+          <input name="password" type="password" class="form-control">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+<%- include('../partials/footer.ejs') %>

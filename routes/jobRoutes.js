@@ -6,6 +6,7 @@ const jobModel = require('../models/JobsModel');
 //CRUD
 router.get('/jobs', async(req, res)=>{
     try {
+        console.log(req.userModel);
         const allJobs = await jobModel.find();
         res.render('../views/jobs/index.ejs', {allJobs});
     } catch (error) {
