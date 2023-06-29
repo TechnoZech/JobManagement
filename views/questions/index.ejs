@@ -11,7 +11,7 @@
     <p>Option4: <%= ques.option4 %></p>
     <p>Ans: <%= ques.ans %></p>
     <a href="/jobs/questions/edit/<%= jobData._id %>/<%= i %>" class="btn btn-primary">Edit Question</a>
-    <a href="/jobs/questions/delete/<%= jobData._id %>" class="btn btn-danger">Delete Question</a>
+    <a href="/jobs/questions/delete/<%= jobData._id %>/<%= i %>" class="btn btn-danger">Delete Question</a>
     <hr>
 <% }) %>
 

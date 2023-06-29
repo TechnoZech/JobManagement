@@ -1,17 +1,30 @@
-<%- include('../partials/navbar.ejs') %>
-<%- include('../partials/header.ejs') %>
+<%- include('../partials/navbar.ejs') %> <%- include('../partials/header.ejs')
+%>
 
-<div class="card me-3 ">
-    <div class="card-body ccard">
-      <h5 class="card-title"><%= jobDetail.postName %></h5>
-      <p class="card-text"><%= jobDetail.companyName %></p>
-      <p class="card-text"><%= jobDetail.ctc %></p>
-      <p class="card-text"><%= jobDetail.location %></p>
-      <p class="card-text"><%= jobDetail.positions %></p>
-      <a href="/jobs/apply/<%= jobDetail._id %>/<%=  %>" class="btn btn-primary">Apply</a>
-      <a href="/jobs/questions/add/<%= jobDetail._id %>" class="btn btn-primary">Add questions</a>
-      <a href="/jobs/questions/view/<%= jobDetail._id %>" class="btn btn-secondary">View questions</a>
-    </div>
+<div class="card me-3">
+	<div class="card-body ccard">
+		<h5 class="card-title"><%= jobDetail.postName %></h5>
+		<p class="card-text"><%= jobDetail.companyName %></p>
+		<p class="card-text"><%= jobDetail.ctc %></p>
+		<p class="card-text"><%= jobDetail.location %></p>
+		<p class="card-text"><%= jobDetail.positions %></p>
+
+		<% if(currentUser.isAdmin){ %>
+
+		<a href="/jobs/questions/add/<%= jobDetail._id %>" class="btn btn-primary"
+			>Add questions</a
+		>
+		<a
+			href="/jobs/questions/view/<%= jobDetail._id %>"
+			class="btn btn-secondary"
+			>View questions</a
+		>
+		<% }else{ %>
+		<a href="/jobs/apply/<%= jobDetail._id %>/<%=  %>" class="btn btn-primary"
+			>Apply</a
+		>
+		<% } %>
+	</div>
 </div>
 
 <%- include('../partials/footer.ejs') %>
