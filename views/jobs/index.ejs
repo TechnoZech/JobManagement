@@ -4,15 +4,22 @@
 <h1>All Jobs Listings</h1>
 <div class="cardPage margin">
 <% for(let jobData of allJobs){ %>
-      <div class="card me-3" style="width: 18rem;">
-        <div class="card-body">
+      <div class="card me-3 ">
+        <div class="card-body ccard">
           <h5 class="card-title"><%= jobData.postName %></h5>
           <p class="card-text"><%= jobData.companyName %></p>
           <p class="card-text"><%= jobData.ctc %></p>
           <p class="card-text"><%= jobData.location %></p>
           <p class="card-text"><%= jobData.positions %></p>
-          <a href="/jobs/edit/<%= jobData._id %>" class="btn btn-primary">Edit</a>
-          <a href="/jobs/delete/<%= jobData._id %>" class="btn btn-danger">Delete</a>
+
+          <% if(currentUser.isAdmin) {%>
+            <a href="/jobs/edit/<%= jobData._id %>" class="btn btn-primary">Edit</a>
+            <a href="/jobs/delete/<%= jobData._id %>" class="btn btn-danger">Delete</a>
+            <a href="/jobs/view/<%= jobData._id %>/<%= currentUser._id %>" class="btn btn-secondary">View</a>
+          <% }else{ %>
+            <a href="/jobs/view/<%= jobData._id %>/<%= currentUser._id %>" class="btn btn-secondary">View</a>
+          <% } %>
+          
         </div>
       </div>
       <% } %>

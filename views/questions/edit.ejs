@@ -1,0 +1,32 @@
+<%- include('../partials/navbar.ejs') %>
+<%- include('../partials/header.ejs') %>
+
+<form method="post" action="/jobs/questions/edit/<%= jobData._id %>/<%= quesId %>?_method=patch" class="margin">
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Question</label>
+      <input value="<%= question.title %>" type="text" name="title" class="form-control" id="exampleInputPassword1">
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Option1</label>
+        <input value="<%= question.option1 %>" type="text" name="option1" class="form-control" id="exampleInputPassword1">
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Option2</label>
+        <input value="<%= question.option2 %>" type="text" name="option2" class="form-control" id="exampleInputPassword1">
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Option3</label>
+        <input value="<%= question.option3 %>" type="text" name="option3" class="form-control" id="exampleInputPassword1">
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Option4</label>
+        <input value="<%= question.option4 %>" type="text" name="option4" class="form-control" id="exampleInputPassword1">
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Ans</label>
+        <input value="<%= question.ans %>" type="text" name="ans" class="form-control" id="exampleInputPassword1">
+    </div>
+    <button type="submit" class="btn btn-primary">Edit</button>
+</form>
+
+<%- include('../partials/footer.ejs') %>

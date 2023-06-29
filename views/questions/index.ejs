@@ -1,0 +1,18 @@
+<%- include('../partials/navbar.ejs') %>
+<%- include('../partials/header.ejs') %>
+
+<h1>All Questions</h1>
+
+<% questions.forEach((ques, i)=>{ %>
+    <h4>Question: <%= ques.title %></h4>
+    <p>Option1: <%= ques.option1 %></p>
+    <p>Option2: <%= ques.option2 %></p>
+    <p>Option3: <%= ques.option3 %></p>
+    <p>Option4: <%= ques.option4 %></p>
+    <p>Ans: <%= ques.ans %></p>
+    <a href="/jobs/questions/edit/<%= jobData._id %>/<%= i %>" class="btn btn-primary">Edit Question</a>
+    <a href="/jobs/questions/delete/<%= jobData._id %>" class="btn btn-danger">Delete Question</a>
+    <hr>
+<% }) %>
+
+<%- include('../partials/footer.ejs') %>

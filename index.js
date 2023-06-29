@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const jobRoutes = require('./routes/jobRoutes');
 const authRoutes = require('./routes/auth');
+const questionRoutes = require('./routes/questions');
 const mongoose = require('mongoose');
 require('dotenv').config();
 const path = require('path');
@@ -10,6 +11,7 @@ const session = require('express-session');
 const passport = require('passport');
 const localStrategy = require('passport-local');
 const userModel = require('./models/userModel');
+const flash = require('connect-flash');
 
 
 // <--- DB setup ---->
@@ -36,6 +38,14 @@ passport.deserializeUser(userModel.deserializeUser());
 
 
 // <--- Server setup ---->
+// Flash
+app.use(flash());
+app.use((req, res, next)=>{
+	res.locals.success = req.flash('success');
+	res.locals.error = req.flash('error');
+	res.locals.currentUser = req.user;
+	next();
+})
 // serving static files
 app.use(express.static(path.join(__dirname, 'public')));
 // form data parsing
@@ -46,9 +56,11 @@ app.use(methodOverride('_method'));
 
 app.use(authRoutes);
 app.use(jobRoutes);
+app.use(questionRoutes);
 app.get('/', (req, res) => {
 	res.send('working');
 });
+// global middleware
 
 app.listen(3000, ()=>{
     console.log("Server is live on port 3000");
